@@ -7,49 +7,43 @@ namespace vn_mode_csharp_dz22
         static void Main(string[] args)
         {
             int arraySize = 30;
-            int[] arrayNumbers = new int[arraySize];
+            int[] numbers = new int[arraySize];
             int minIntNumber = 1;
             int maxIntNumber = 10;
-            int tempCenterNumber, tempLeftNumber, tempRightNumber, firstNumber, lastNumber;
             Random random = new Random();
 
             for (int i = 0; i < arraySize; i++)
             {
-                arrayNumbers[i] = random.Next(minIntNumber, maxIntNumber);
+                numbers[i] = random.Next(minIntNumber, maxIntNumber);
             }
-
-            firstNumber = arrayNumbers[0];
-            lastNumber = arrayNumbers[arraySize - 1];
 
             Console.WriteLine("Исходный массив целых чисел:");
 
-            foreach (var number in arrayNumbers)
+            foreach (var item in numbers)
             {
-                Console.Write(number + " ");
+                Console.Write(item + " ");
             }
+
             Console.WriteLine("\n\nВсе локальные максимумы: ");
 
-            if (firstNumber > arrayNumbers[1])
+            if (numbers[0] > numbers[1])
             {
-                Console.Write(firstNumber + " ");
+                Console.Write(numbers[0] + " ");
             }
 
             for (int i = 0; i < arraySize - 2; i++)
             {
-                tempLeftNumber = arrayNumbers[i];
-                tempCenterNumber = arrayNumbers[i + 1];
-                tempRightNumber = arrayNumbers[i + 2];
-
-                if(tempCenterNumber > tempLeftNumber && tempCenterNumber > tempRightNumber)
+                if(numbers[i + 1] > numbers[i] && numbers[i + 1] > numbers[i + 2])
                 {
-                    Console.Write(tempCenterNumber + " ");
+                    Console.Write(numbers[i + 1] + " ");
                 }
             }
 
-            if (lastNumber > arrayNumbers[arraySize - 2])
+            if (numbers[arraySize - 1] > numbers[arraySize - 2])
             {
-                Console.Write(lastNumber + " ");
+                Console.Write(numbers[arraySize - 1] + " ");
             }
+
         }
     }
 }
